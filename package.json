@@ -1,0 +1,30 @@
+{
+  "name": "create-vaulta",
+  "version": "1.0.6",
+  "description": "A CLI for creating projects on the Vaulta blockchain",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "rimraf": "^5.0.5",
+    "@clack/prompts": "^0.7.0",
+    "kleur": "^4.1.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nsjames/create-vaulta"
+  },
+  "license": "MIT",
+  "homepage": "https://vaulta.com",
+  "bin": {
+    "create-vaulta": "./bin.js"
+  },
+  "files": [
+    "bin.js",
+    "index.js"
+  ],
+  "type": "module"
+}
