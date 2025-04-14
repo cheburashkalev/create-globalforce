@@ -1,6 +1,6 @@
 {
   "name": "create-vaulta",
-  "version": "1.0.6",
+  "version": "1.0.0",
   "description": "A CLI for creating projects on the Vaulta blockchain",
   "main": "index.js",
   "scripts": {
