@@ -15,7 +15,7 @@ const execAndForward = (command, options = {}) => {
 
 let cwd = process.argv[2] || '.';
 
-prompt.intro(`Welcome to Vaulta!`);
+prompt.intro(`Welcome to GlobalForce!`);
 
 if (cwd === '.') {
     const dir = await prompt.text({
@@ -43,21 +43,21 @@ if (fs.existsSync(cwd)) {
     rimrafSync(cwd);
 }
 
-const useTemplate = await prompt.select({
-    message: 'Do you want to use a template?',
-    options: [
-        {
-            hint: 'Start with a blank project',
-            label: 'No',
-            value: false,
-        },
-        {
-            hint: 'Choose a template from the list to start with',
-            label: 'Yes',
-            value: true
-        }
-    ]
-});
+const useTemplate = false;//= await prompt.select({
+//    message: 'Do you want to use a template?',
+//    options: [
+//        {
+//            hint: 'Start with a blank project',
+//            label: 'No',
+//            value: false,
+//        },
+//        {
+//            hint: 'Choose a template from the list to start with',
+//            label: 'Yes',
+//            value: true
+//        }
+//    ]
+//});
 
 let template = null;
 if(useTemplate){
@@ -70,9 +70,7 @@ if(useTemplate){
     });
 }
 
-// copilot stops working on bad words, boo
-// so I'm doing this and injecting it below instead
-const cli = 'fuckyea';
+const cli = 'contract-flow';
 
 if(template) {
     prompt.outro(`Setting up your ${template} starter kit project in ${kleur.bold(cwd)}...`);

@@ -1,7 +1,7 @@
 {
-  "name": "create-vaulta",
+  "name": "create-globalforce",
   "version": "1.0.0",
-  "description": "A CLI for creating projects on the Vaulta blockchain",
+  "description": "A CLI for creating projects on the GlobalForce blockchain",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nsjames/create-vaulta"
+    "url": "https://github.com/cheburashkalev/create-globalforce"
   },
   "license": "MIT",
-  "homepage": "https://vaulta.com",
+  "homepage": "https://globalforce.io",
   "bin": {
-    "create-vaulta": "./bin.js"
+    "create-globalforce": "./bin.js"
   },
   "files": [
     "bin.js",

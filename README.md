@@ -1,7 +1,7 @@
-# create-vaulta
+# create-globalforce
 
-A CLI for creating projects on the [Vaulta Blockchain](https://vaulta.com)
+A CLI for creating projects on the [GlobalForce Blockchain](https://globalforce.io)
 
 ```bash
-npm create vaulta
+npm create globalforce@latest
 ```
