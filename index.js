@@ -2,14 +2,10 @@ import {exec, spawn} from 'child_process';
 import * as prompt from '@clack/prompts';
 import kleur from 'kleur';
 import fs from 'fs';
-import fetch from 'node-fetch';
 import {rimrafSync} from 'rimraf';
 import path from 'path';
 
 const execAndForward = (command, options = {}) => {
-    // const proc = exec(command, options)
-    // proc.stdout.pipe(process.stdout);
-    // proc.stderr.pipe(process.stderr);
     spawn(command, {shell: true, stdio: 'inherit', ...options});
 }
 
@@ -43,39 +39,7 @@ if (fs.existsSync(cwd)) {
     rimrafSync(cwd);
 }
 
-const useTemplate = false;//= await prompt.select({
-//    message: 'Do you want to use a template?',
-//    options: [
-//        {
-//            hint: 'Start with a blank project',
-//            label: 'No',
-//            value: false,
-//        },
-//        {
-//            hint: 'Choose a template from the list to start with',
-//            label: 'Yes',
-//            value: true
-//        }
-//    ]
-//});
-
-let template = null;
-if(useTemplate){
-    const templates = await fetch('https://api.github.com/repos/vaultafoundation/template-projects/contents').then(res => res.json()).catch(err => console.error(err));
-    const templateNames = templates.filter(x => x.type === 'dir').map(x => x.name);
-
-    template = await prompt.select({
-        message: 'Choose a template to start with',
-        options: templateNames.map(x => ({value: x}))
-    });
-}
-
 const cli = 'contract-flow';
-
-if(template) {
-    prompt.outro(`Setting up your ${template} starter kit project in ${kleur.bold(cwd)}...`);
-    execAndForward(`npx ${cli} starter ${template} ${cwd}`);
-} else {
 
 
     const framework = await prompt.select({
@@ -101,8 +65,7 @@ if(template) {
     // create cwd/contracts
     fs.mkdirSync(path.join(cwd, 'contracts'), {recursive: true});
     fs.mkdirSync(path.join(cwd, 'ui'), {recursive: true});
-
-
+    fs.writeFileSync(path.join(cwd, 'README.md'), fs.readFileSync(path.join(__dirname, 'README_START.md'), 'utf-8'));
     prompt.outro(`Setting up your project in ${kleur.bold(cwd)}...`);
 
     if(framework === 'svelte') {
@@ -114,6 +77,6 @@ if(template) {
     }
 
     execAndForward(`npx ${cli} create .`, {cwd: path.join(cwd, 'contracts')});
-}
+
 
 

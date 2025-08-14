@@ -1,6 +1,6 @@
 {
   "name": "create-globalforce",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CLI for creating projects on the GlobalForce blockchain",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,8 @@
   },
   "files": [
     "bin.js",
-    "index.js"
+    "index.js",
+    "README_START.md"
   ],
   "type": "module"
 }
