@@ -4,7 +4,7 @@ import kleur from 'kleur';
 import fs from 'fs';
 import {rimrafSync} from 'rimraf';
 import path from 'path';
-
+import { fileURLToPath } from 'url';
 const execAndForward = (command, options = {}) => {
     spawn(command, {shell: true, stdio: 'inherit', ...options});
 }
@@ -61,11 +61,12 @@ const cli = 'contract-flow';
     });
 
     if (prompt.isCancel(framework)) process.exit(1);
-
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = dirname(__filename);
     // create cwd/contracts
     fs.mkdirSync(path.join(cwd, 'contracts'), {recursive: true});
     fs.mkdirSync(path.join(cwd, 'ui'), {recursive: true});
-    fs.writeFileSync(path.join(cwd, 'README.md'), fs.readFileSync(path.join(__dirname, 'README_START.md'), 'utf-8'));
+    fs.writeFileSync(path.join(cwd, 'README.md'), fs.readFileSync(path.join(path., 'README_START.md'), 'utf-8'));
     prompt.outro(`Setting up your project in ${kleur.bold(cwd)}...`);
 
     if(framework === 'svelte') {

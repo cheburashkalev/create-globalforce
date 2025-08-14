@@ -1,6 +1,6 @@
 {
   "name": "create-globalforce",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A CLI for creating projects on the GlobalForce blockchain",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,9 @@
     "node-fetch": "^3.3.2",
     "rimraf": "^5.0.5",
     "@clack/prompts": "^0.7.0",
-    "kleur": "^4.1.5"
+    "kleur": "^4.1.5",
+    "url": "0.11.4",
+    "path": "0.12.7"
   },
   "repository": {
     "type": "git",
